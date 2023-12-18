@@ -49,7 +49,7 @@ public class Main {
                 x1 = 10;
                 break;
             default:
-                System.out.println("ERROR!");
+                System.out.println("throws Exception");
                 break;
         }
         return x1;
@@ -89,7 +89,7 @@ public class Main {
                 y1 = 10;
                 break;
             default:
-                System.out.println("ERROR!");
+                System.out.println("throws Exception");
                 break;
         }
         return y1;
@@ -133,14 +133,14 @@ public class Main {
                         System.out.println(intToRoman(firstnum-secondnum));
                         break;
                     default:
-                        System.out.println("ERROR!");
+                        System.out.println("throws Exception");
                         break;
                 }
             }
-            else System.out.println("ERROR1!");
+            else System.out.println("throws Exception");
         }
         else if((isDigit(first) != true || isDigit(second) != true)){
-            System.out.println("ERROR!");
+            System.out.println("throws Exception");
         }
         else{
             firstnum = Integer.valueOf(first);
@@ -160,11 +160,11 @@ public class Main {
                         System.out.println(firstnum-secondnum);
                         break;
                     default:
-                        System.out.println("ERROR!");
+                        System.out.println("throws Exception");
                         break;
                 }
             }
-            else System.out.println("ERROR");
+            else System.out.println("throws Exception");
         }
     }
 }
