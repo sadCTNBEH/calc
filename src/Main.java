@@ -14,6 +14,7 @@ public class Main {
                 List.of("", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC").get(num / 10 % 10) +
                 List.of("", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX").get(num % 10);
     }
+    //Функция переводит первое число в римское
     public static int ConvertXToNormal(String x){
         int x1 = 0;
         switch(x){
@@ -53,7 +54,7 @@ public class Main {
         }
         return x1;
     }
-
+    //Функция переводит второе число в римское
     public static int ConvertYToNormal(String y){
         int y1 = 0;
         switch(y){
@@ -94,6 +95,7 @@ public class Main {
         return y1;
     }
 
+    //Украдено из интернета, стыдно, но зато работает, проверяет является ли числом
     private static boolean isDigit(String s) throws NumberFormatException {
         try {
             Integer.parseInt(s);
@@ -102,23 +104,21 @@ public class Main {
             return false;
         }
     }
-
+    //Создаются переменные для входных данных, проверяется арабские или римские цифры, производятся вычисления
     public static void main(String[] args) {
-        String s = "123";
         Scanner scan = new Scanner(System.in);
         var first = scan.next();
         var opp = scan.next();
         var second = scan.next();
         int firstnum = 0;
         int secondnum = 0;
-        var ss = first+opp+second;
-        if (ss.matches(first + opp + second)){
-            System.out.println("ERRO11R!");
-        }
-        else if (isDigit(first) != true && isDigit(second) != true){
+
+        if (isDigit(first) != true && isDigit(second) != true){
             firstnum = ConvertXToNormal(first);
             secondnum = ConvertYToNormal(second);
+            //Проверяется, чтобы результат в римских числах был больше 0 и чтобы сами числа были от 1 до 10
             if (firstnum/secondnum >= 0 && firstnum*secondnum >= 0 && firstnum-secondnum >= 0 && firstnum+secondnum >= 0 && firstnum >= 0 && firstnum <= 10 && secondnum >= 0 && secondnum <= 10){
+                //Switch с выбором действия для вычислений
                 switch (opp){
                     case "/":
                         System.out.println(intToRoman(firstnum/secondnum));
