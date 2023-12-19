@@ -126,7 +126,7 @@ public class Main {
             firstnum = ConvertXToNormal(first);
             secondnum = ConvertYToNormal(second);
             //Проверяется, чтобы результат в римских числах был больше 0 и чтобы сами числа были от 1 до 10
-            if (firstnum >= 0 && firstnum <= 10 && secondnum >= 0 && secondnum <= 10){
+            if (firstnum >= 1 && firstnum <= 10 && secondnum >= 1 && secondnum <= 10){
                 //Switch с выбором действия для вычислений
                 switch (opp){
                     case "/":
@@ -161,7 +161,7 @@ public class Main {
         else{
             firstnum = Integer.valueOf(first);
             secondnum = Integer.valueOf(second);
-            if (firstnum >= 0 && firstnum <= 10 && secondnum >= 0 && secondnum <= 10){
+            if (firstnum >= 1 && firstnum <= 10 && secondnum >= 1 && secondnum <= 10){
                 switch (opp){
                     case "/":
                         System.out.println(firstnum/secondnum);
