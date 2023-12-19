@@ -93,7 +93,7 @@ public class Main {
         return y1;
     }
 
-    //Украдено из интернета, стыдно, но зато работает, проверяет является ли числом
+    //Проверяет является ли числом
     private static boolean isDigit(String s) throws NumberFormatException {
         try {
             Integer.parseInt(s);
