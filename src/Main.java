@@ -15,7 +15,7 @@ public class Main {
                 List.of("", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX").get(num % 10);
     }
     //Функция переводит первое число в римское
-    public static int ConvertXToNormal(String x){
+    public static int ConvertXToNormal(String x) throws Exception {
         int x1 = 0;
         switch(x){
             case "I":
@@ -49,13 +49,12 @@ public class Main {
                 x1 = 10;
                 break;
             default:
-                System.out.println("throws Exception");
-                break;
+                throw new Exception();
         }
         return x1;
     }
     //Функция переводит второе число в римское
-    public static int ConvertYToNormal(String y){
+    public static int ConvertYToNormal(String y) throws Exception {
         int y1 = 0;
         switch(y){
             case "I":
@@ -89,8 +88,7 @@ public class Main {
                 y1 = 10;
                 break;
             default:
-                System.out.println("throws Exception");
-                break;
+                throw new Exception();
         }
         return y1;
     }
@@ -105,42 +103,60 @@ public class Main {
         }
     }
     //Создаются переменные для входных данных, проверяется арабские или римские цифры, производятся вычисления
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
         Scanner scan = new Scanner(System.in);
-        var first = scan.next();
-        var opp = scan.next();
-        var second = scan.next();
+        String vir = scan.nextLine();
+
+        String[] operands = vir.split(" ");
+
+        if (operands.length > 3){
+            throw new Exception();
+        }
+
+        var first = operands[0];
+        var opp = operands[1];
+        var second = operands[2];
         int firstnum = 0;
         int secondnum = 0;
+
+
 
         if (isDigit(first) != true && isDigit(second) != true){
             firstnum = ConvertXToNormal(first);
             secondnum = ConvertYToNormal(second);
             //Проверяется, чтобы результат в римских числах был больше 0 и чтобы сами числа были от 1 до 10
-            if (firstnum/secondnum >= 0 && firstnum*secondnum >= 0 && firstnum-secondnum >= 0 && firstnum+secondnum >= 0 && firstnum >= 0 && firstnum <= 10 && secondnum >= 0 && secondnum <= 10){
+            if (firstnum >= 0 && firstnum <= 10 && secondnum >= 0 && secondnum <= 10){
                 //Switch с выбором действия для вычислений
                 switch (opp){
                     case "/":
-                        System.out.println(intToRoman(firstnum/secondnum));
+                        if (firstnum/secondnum >= 0){
+                            System.out.println(intToRoman(firstnum/secondnum));
+                        }
                         break;
                     case "*":
-                        System.out.println(intToRoman(firstnum*secondnum));
+                        if (firstnum*secondnum >= 0){
+                            System.out.println(intToRoman(firstnum*secondnum));
+                        }
                         break;
                     case "+":
-                        System.out.println(intToRoman(firstnum+secondnum));
+                        if (firstnum+secondnum >= 0){
+                            System.out.println(intToRoman(firstnum+secondnum));
+                        }
                         break;
                     case "-":
-                        System.out.println(intToRoman(firstnum-secondnum));
+                        if (firstnum-secondnum >= 0){
+                            System.out.println(intToRoman(firstnum-secondnum));
+                        }
                         break;
                     default:
-                        System.out.println("throws Exception");
-                        break;
+                        throw new Exception();
                 }
             }
-            else System.out.println("throws Exception");
+            else throw new Exception();
         }
         else if((isDigit(first) != true || isDigit(second) != true)){
-            System.out.println("throws Exception");
+            throw new Exception();
         }
         else{
             firstnum = Integer.valueOf(first);
@@ -160,11 +176,10 @@ public class Main {
                         System.out.println(firstnum-secondnum);
                         break;
                     default:
-                        System.out.println("throws Exception");
-                        break;
+                        throw new Exception();
                 }
             }
-            else System.out.println("throws Exception");
+            else throw new Exception();
         }
     }
 }
