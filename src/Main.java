@@ -4,17 +4,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
-    //Подсмотрел в интернете, получилось сократить функцию до такого вида.
-    // Определяет римскую цифру по номеру элемента из списка, после деления
-    //Прим. 2000/1000 = 2 - M; 305/100 = 3, 3%10 = 3 - CCC, 5%10=5 => V; 305 - CCCV
+    
     public static String intToRoman(int num) {
         return List.of("", "M", "MM", "MMM").get(num / 1000) +
                 List.of("", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM").get(num / 100 % 10) +
                 List.of("", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC").get(num / 10 % 10) +
                 List.of("", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX").get(num % 10);
     }
-    //Функция переводит первое число в римское
     public static int ConvertXToNormal(String x) throws Exception {
         int x1 = 0;
         switch(x){
@@ -53,7 +49,6 @@ public class Main {
         }
         return x1;
     }
-    //Функция переводит второе число в римское
     public static int ConvertYToNormal(String y) throws Exception {
         int y1 = 0;
         switch(y){
@@ -93,7 +88,6 @@ public class Main {
         return y1;
     }
 
-    //Проверяет является ли числом
     private static boolean isDigit(String s) throws NumberFormatException {
         try {
             Integer.parseInt(s);
@@ -102,7 +96,6 @@ public class Main {
             return false;
         }
     }
-    //Создаются переменные для входных данных, проверяется арабские или римские цифры, производятся вычисления
     public static void main(String[] args) throws Exception {
 
         Scanner scan = new Scanner(System.in);
